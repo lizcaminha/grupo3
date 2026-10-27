@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Requisição</title>
+</head>
+<style>
+    .topnav{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        font-size: small;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        background-color: #333333;
+        display: flex;
+        justify-content: center;
+    }
+    ul li {
+        display: block;
+        color: white;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+</style>
+<body style="display: flex; flex-direction: row;  margin: 0 0 0; padding: 0;">
+    <div class="sidebar" style="background-color: gray; color: white; display: flex; flex-direction: column;  flex-grow: 1; min-width: 150px; height:100vh">
+            <div style="padding-top:10vh">
+                <p>Página Inicial</p>
+                <p>Minhas Requisições</p>
+                <p>Adicionar Requisição</p>
+                <p>Autorizações</p>
+            </div>
+    </div>
+    <div class="topnav">
+        <ul>
+            <li><h1>Sistema de liberação</h1></li>
+            <li style="margin-left:1000px"></li>
+            <li><h1>Logar com SUAP</h1></li>
+            <li><h1>IFMT campus octayde</h1></li>
+        </ul>
+    </div>
+    <div class="form" style="color:black; display: flex; flex-direction: column; flex-grow: 5; min-width: 630px; padding-left: 10vw; padding-top: 10vh">
+        <h1>Nova Requisição</h1>
+        <br><br>
+        <form>
+            <label for="name">Nome:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="date">Data:</label><br>
+            <input type="date" id="date" name="date" editable="false">
+            <br><br>
+            <label for="just">Justificativa:</label><br>
+            <input type="just" id="just" name="just" style="height: 100px; width: 400px;">
+            <br><br><br>
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Reset">
+        </form>
+    </div>
+</body>
+</html>
+<script>
+    let d = new Date();
+    let datestring = d.getFullYear().toString().padStart(4, '0') + '-' + (d.getMonth()+1).toString().padStart(2, '0') + '-' + d.getDate().toString().padStart(2, '0');
+    document.getElementById('date').value = datestring;
+</script>
