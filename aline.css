@@ -1,0 +1,253 @@
+
+/* Configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f1f3f5;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Barra superior */
+.topnav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    background-color: #222831;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 30px;
+    z-index: 1000;
+}
+
+.topnav h2 {
+    font-size: 22px;
+}
+
+.top-info {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-size: 14px;
+}
+
+/* Menu lateral */
+.sidebar {
+    position: fixed;
+    top: 75px;
+    left: 0;
+
+    width: 230px;
+    height: calc(100vh - 75px);
+
+    background-color: #393e46;
+    padding-top: 30px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 18px 25px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #555b65;
+}
+
+.sidebar a.active {
+    background-color: #007bff;
+}
+
+/* Conteúdo principal */
+.content {
+    margin-left: 230px;
+    margin-top: 75px;
+
+    width: calc(100% - 230px);
+    min-height: calc(100vh - 75px);
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 60px 30px;
+}
+
+/* Cartão do formulário */
+.form-card {
+    background-color: white;
+    width: 100%;
+    max-width: 650px;
+
+    padding: 35px;
+    border-radius: 10px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.form-card h1 {
+    color: #222831;
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.subtitle {
+    color: #777;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+/* Campos do formulário */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 12px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    margin-bottom: 22px;
+    font-size: 15px;
+    outline: none;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+}
+
+/* Campo de justificativa */
+form textarea {
+    height: 130px;
+    resize: vertical;
+}
+
+/* Botões */
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+button {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 6px;
+
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+.btn-reset {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-reset:hover {
+    background-color: #b02a37;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+
+    .topnav {
+        padding: 0 15px;
+    }
+
+    .topnav h2 {
+        font-size: 17px;
+    }
+
+    .top-info {
+        gap: 10px;
+        font-size: 11px;
+    }
+
+    .sidebar {
+        width: 170px;
+    }
+
+    .sidebar a {
+        padding: 15px;
+        font-size: 13px;
+    }
+
+    .content {
+        margin-left: 170px;
+        width: calc(100% - 170px);
+        padding: 30px 15px;
+    }
+
+    .form-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .top-info span:last-child {
+        display: none;
+    }
+
+    .sidebar {
+        width: 120px;
+    }
+
+    .sidebar a {
+        font-size: 11px;
+        padding: 12px 8px;
+    }
+
+    .content {
+        margin-left: 120px;
+        width: calc(100% - 120px);
+    }
+
+    .form-card h1 {
+        font-size: 22px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+}
