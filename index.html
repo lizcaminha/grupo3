@@ -1,72 +1,22 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Requisição - Sistema de Liberação</title>
-    <link rel="stylesheet" href="aline.css">
-    <script src="script.js" defer></script>
-</head>
-<body>
-    <header class="topnav">
-        <h2>Sistema de Liberação</h2>
-        <div class="top-info">
-            <span>IFMT - Campus Octayde</span>
-            <span>Nova requisição</span>
-        </div>
-    </header>
-
-    <aside class="sidebar">
-        <nav>
-            <a href="#">Página Inicial</a>
-            <a href="#">Minhas Requisições</a>
-            <a class="active" href="#">Adicionar Requisição</a>
-            <a href="#">Autorizações</a>
-        </nav>
-    </aside>
-
-    <main class="content">
-        <section class="form-card">
-            <h1>Nova Requisição</h1>
-            <p class="subtitle">Preencha os campos para solicitar autorização de saída.</p>
-
-            <form id="requestForm">
-                <label for="name">Nome do aluno ou visitante</label>
-                <input type="text" id="name" name="name" placeholder="Digite seu nome completo" required maxlength="100">
-
-                <label for="professor">Professor responsável</label>
-                <input type="text" id="professor" name="professor" placeholder="Digite o nome do professor" required maxlength="100">
-
-                <div class="field-row">
-                    <div class="field">
-                        <label for="date">Data da saída</label>
-                        <input type="date" id="date" name="date" required>
-                    </div>
-                    <div class="field">
-                        <label for="time">Horário da saída</label>
-                        <input type="time" id="time" name="time" required>
-                    </div>
-                </div>
-
-                <label for="justification">Justificativa</label>
-                <textarea id="justification" name="justification"
-                    placeholder="Explique o motivo da solicitação..." required minlength="5" maxlength="1000"></textarea>
-
-                <div class="buttons">
-                    <button class="btn-submit" type="submit" id="submitButton">Enviar requisição</button>
-                    <button class="btn-reset" type="reset">Limpar campos</button>
-                </div>
-                <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
-            </form>
-        </section>
-
-        <section class="requests-card">
-            <h2>Requisições registradas neste navegador</h2>
-            <p class="subtitle">Esta lista demonstra o salvamento local das solicitações.</p>
-            <div id="requestsList">
-                <p class="empty-message">Nenhuma requisição registrada ainda.</p>
-            </div>
-        </section>
-    </main>
-</body>
-</html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Sistema de Liberação - IFMT</title><link rel="stylesheet" href="aline.css"><script src="script.js" defer></script></head>
+<body><header class="topnav"><h2>Sistema de Liberação</h2><div class="top-info"><span>IFMT - Campus Octayde</span><span>Grupo 3 - Back-end</span></div></header>
+<aside class="sidebar"><nav>
+<a href="#inicio" class="nav-link active" data-page="inicio">Página Inicial</a>
+<a href="#minhas-requisicoes" class="nav-link" data-page="minhas-requisicoes">Minhas Requisições</a>
+<a href="#adicionar-requisicao" class="nav-link" data-page="adicionar-requisicao">Adicionar Requisição</a>
+<a href="#autorizacoes" class="nav-link" data-page="autorizacoes">Autorizações</a>
+</nav></aside>
+<main class="content">
+<section class="page" id="page-inicio"><h1>Página Inicial</h1><p class="subtitle">Acompanhe suas solicitações de saída.</p>
+<div class="summary-grid"><article class="summary-card"><span>Total de requisições</span><strong id="totalCount">0</strong></article><article class="summary-card"><span>Pendentes</span><strong id="pendingCount">0</strong></article><article class="summary-card"><span>Autorizadas</span><strong id="approvedCount">0</strong></article><article class="summary-card"><span>Negadas</span><strong id="deniedCount">0</strong></article></div>
+<section class="panel"><h2>Histórico recente</h2><p class="subtitle">Solicitações registradas neste navegador.</p><div id="homeHistory"></div></section></section>
+<section class="page hidden" id="page-minhas-requisicoes"><section class="panel"><h1>Minhas Requisições</h1><p class="subtitle">Consulte suas solicitações e acompanhe a situação.</p><div id="myRequests"></div></section></section>
+<section class="page hidden" id="page-adicionar-requisicao"><section class="form-card"><h1>Nova Requisição</h1><p class="subtitle">Preencha os campos para solicitar autorização de saída.</p>
+<form id="requestForm"><label for="name">Nome do aluno ou visitante</label><input type="text" id="name" placeholder="Digite seu nome completo" required maxlength="100">
+<label for="professor">Professor responsável</label><input type="text" id="professor" placeholder="Digite o nome do professor" required maxlength="100">
+<div class="field-row"><div class="field"><label for="date">Data da saída</label><input type="date" id="date" required></div><div class="field"><label for="time">Horário da saída</label><input type="time" id="time" required></div></div>
+<label for="justification">Justificativa</label><textarea id="justification" placeholder="Explique o motivo da solicitação..." required minlength="5" maxlength="1000"></textarea>
+<div class="buttons"><button class="btn-submit" type="submit">Enviar requisição</button><button class="btn-reset" type="reset">Limpar campos</button></div><p id="feedback" class="feedback" role="status"></p></form></section></section>
+<section class="page hidden" id="page-autorizacoes"><section class="panel"><h1>Autorizações</h1><p class="subtitle">Área administrativa para analisar solicitações pendentes.</p><div class="notice">Demonstração acadêmica: as decisões ficam salvas somente neste navegador.</div><div id="authorizationList"></div></section></section>
+</main></body></html>
