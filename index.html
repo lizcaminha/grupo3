@@ -1,71 +1,72 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Requisição</title>
+    <title>Nova Requisição - Sistema de Liberação</title>
+    <link rel="stylesheet" href="aline.css">
+    <script src="script.js" defer></script>
 </head>
-<style>
-    .topnav{
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-        font-size: small;
-    }
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        background-color: #333333;
-        display: flex;
-        justify-content: center;
-    }
-    ul li {
-        display: block;
-        color: white;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-</style>
-<body style="display: flex; flex-direction: row;  margin: 0 0 0; padding: 0;">
-    <div class="sidebar" style="background-color: gray; color: white; display: flex; flex-direction: column;  flex-grow: 1; min-width: 150px; height:100vh">
-            <div style="padding-top:10vh">
-                <p>Página Inicial</p>
-                <p>Minhas Requisições</p>
-                <p>Adicionar Requisição</p>
-                <p>Autorizações</p>
+<body>
+    <header class="topnav">
+        <h2>Sistema de Liberação</h2>
+        <div class="top-info">
+            <span>IFMT - Campus Octayde</span>
+            <span>Nova requisição</span>
+        </div>
+    </header>
+
+    <aside class="sidebar">
+        <nav>
+            <a href="#">Página Inicial</a>
+            <a href="#">Minhas Requisições</a>
+            <a class="active" href="#">Adicionar Requisição</a>
+            <a href="#">Autorizações</a>
+        </nav>
+    </aside>
+
+    <main class="content">
+        <section class="form-card">
+            <h1>Nova Requisição</h1>
+            <p class="subtitle">Preencha os campos para solicitar autorização de saída.</p>
+
+            <form id="requestForm">
+                <label for="name">Nome do aluno ou visitante</label>
+                <input type="text" id="name" name="name" placeholder="Digite seu nome completo" required maxlength="100">
+
+                <label for="professor">Professor responsável</label>
+                <input type="text" id="professor" name="professor" placeholder="Digite o nome do professor" required maxlength="100">
+
+                <div class="field-row">
+                    <div class="field">
+                        <label for="date">Data da saída</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="field">
+                        <label for="time">Horário da saída</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+                </div>
+
+                <label for="justification">Justificativa</label>
+                <textarea id="justification" name="justification"
+                    placeholder="Explique o motivo da solicitação..." required minlength="5" maxlength="1000"></textarea>
+
+                <div class="buttons">
+                    <button class="btn-submit" type="submit" id="submitButton">Enviar requisição</button>
+                    <button class="btn-reset" type="reset">Limpar campos</button>
+                </div>
+                <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <section class="requests-card">
+            <h2>Requisições registradas neste navegador</h2>
+            <p class="subtitle">Esta lista demonstra o salvamento local das solicitações.</p>
+            <div id="requestsList">
+                <p class="empty-message">Nenhuma requisição registrada ainda.</p>
             </div>
-    </div>
-    <div class="topnav">
-        <ul>
-            <li><h1>Sistema de liberação</h1></li>
-            <li style="margin-left:1000px"></li>
-            <li><h1>Logar com SUAP</h1></li>
-            <li><h1>IFMT campus octayde</h1></li>
-        </ul>
-    </div>
-    <div class="form" style="color:black; display: flex; flex-direction: column; flex-grow: 5; min-width: 630px; padding-left: 10vw; padding-top: 10vh">
-        <h1>Nova Requisição</h1>
-        <br><br>
-        <form>
-            <label for="name">Nome:</label><br>
-            <input type="text" id="name" name="name"><br>
-            <label for="date">Data:</label><br>
-            <input type="date" id="date" name="date" editable="false">
-            <br><br>
-            <label for="just">Justificativa:</label><br>
-            <input type="just" id="just" name="just" style="height: 100px; width: 400px;">
-            <br><br><br>
-            <input type="submit" value="Enviar">
-            <input type="reset" value="Reset">
-        </form>
-    </div>
+        </section>
+    </main>
 </body>
 </html>
-<script>
-    let d = new Date();
-    let datestring = d.getFullYear().toString().padStart(4, '0') + '-' + (d.getMonth()+1).toString().padStart(2, '0') + '-' + d.getDate().toString().padStart(2, '0');
-    document.getElementById('date').value = datestring;
-</script>
